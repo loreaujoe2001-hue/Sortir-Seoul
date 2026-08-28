@@ -9,24 +9,19 @@ function show(id){
   const prevEl = document.getElementById(currentScreen);
   const nextEl = document.getElementById(id);
 
-  // Fait disparaître l'écran actuel en douceur
+  // On bascule tout de suite : plus de fondu de sortie qui se chevauche avec l'entrée
   prevEl.classList.remove('show');
+  prevEl.classList.remove('active');
 
-  const switchTo = () => {
-    prevEl.classList.remove('active');
-    nextEl.classList.add('active');
-    window.scrollTo(0, 0);
-    // on force un reflow pour être sûr que la transition se déclenche
-    void nextEl.offsetWidth;
-    requestAnimationFrame(() => nextEl.classList.add('show'));
-    currentScreen = id;
-  };
+  nextEl.classList.add('active');
+  window.scrollTo(0, 0);
 
-  // On attend la fin du fondu de sortie avant de basculer (avec un filet de sécurité)
-  let done = false;
-  const onEnd = () => { if(done) return; done = true; switchTo(); };
-  prevEl.addEventListener('transitionend', onEnd, {once:true});
-  setTimeout(onEnd, 260);
+  // On repart bien de l'état invisible avant de forcer le fondu d'entrée
+  nextEl.classList.remove('show');
+  void nextEl.offsetWidth; // force le reflow pour que la transition se déclenche
+  requestAnimationFrame(() => nextEl.classList.add('show'));
+
+  currentScreen = id;
 }
 
 // Petit fondu d'entrée sur l'écran de départ, comme pour les autres transitions
