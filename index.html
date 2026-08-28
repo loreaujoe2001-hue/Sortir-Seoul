@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f8fe8">
+  <title>Petit plan à Séoul · 29–30 août</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="floating" aria-hidden="true"><span>🐾</span><span>♡</span><span>🐾</span><span>✦</span><span>🐾</span></div>
+<main class="app">
+<section id="intro" class="screen active">
+  <div class="hero">
+    <div class="hero-card">
+      <div class="cat-mascot" aria-hidden="true"><div class="cat-face"><i class="eye l"></i><i class="eye r"></i><i class="nose"></i><i class="whisker w1"></i><i class="whisker w2"></i><i class="whisker w3"></i><i class="whisker w4"></i></div><i class="tail"></i></div>
+      <div class="kicker">SÉOUL · 29—30 AOÛT 2026</div>
+      <h1>Un petit<br><em>plan à Séoul</em> 🐾</h1>
+      <p class="lead">J'ai préparé un petit programme pour nos deux jours.<br>Un peu de Séoul traditionnel, de la nature, de la nourriture,<br>quelques endroits sympas… et surtout, sans pression. 😼</p>
+      <div class="postcard">
+        <div class="stamp">SEOUL<br><small>29—30</small></div>
+        <div class="route"><span>TOI</span><b>♡</b><span>SEOUL</span></div>
+      </div>
+      <button class="primary" id="openPlan">Voir le programme <span>→</span></button>
+      <p class="tiny">Tu peux donner ton avis à la fin 🐱</p>
+    </div>
+  </div>
+</section>
+
+<section id="plan" class="screen">
+  <header class="topbar"><button class="icon" id="backIntro">←</button><span>NOTRE PETIT PROGRAMME</span><span class="cat-dot">🐾</span></header>
+  <div class="tabs">
+    <button class="tab active" data-day="29">29<br><small>HISTOIRE + TRADITION</small></button>
+    <button class="tab" data-day="30">30<br><small>NATURE + FUN</small></button>
+  </div>
+
+  <div id="day29" class="day active">
+    <div class="dayhead"><span>Samedi</span><strong>29 août</strong></div>
+    <div class="item"><div class="time">09:30</div><div><h3>Gyeongbokgung Palace 🏯</h3><p>On commence par le grand classique : le palais, les photos et une première immersion dans le vieux Séoul.</p><small class="optional">OPTION : billet OU tenue traditionnelle / hanbok</small></div></div>
+    <div class="item"><div class="time">12:00</div><div><h3>Tongin Market 🍱</h3><p>On choisit quelques plats au marché et on mange au coin café tranquillement.</p><small>déjeuner · on choisit ensemble</small></div></div>
+    <div class="item"><div class="time">13:30</div><div><h3>Bukchon Hanok Village 🏘️</h3><p>Balade dans les ruelles traditionnelles, photos et petites boutiques.</p><small>visite en journée</small></div></div>
+    <div class="item"><div class="time">15:00</div><div><h3>TETEROT Tailor 👕</h3><p>Un passage pour regarder les vêtements coréens modernes inspirés du style traditionnel.</p><small>shopping</small></div></div>
+    <div class="item"><div class="time">16:30</div><div><h3>DOTORI Garden Anguk 🐾🍰</h3><p>Pause café + desserts dans une ambiance toute mignonne, un peu Ghibli.</p><small>pause sucrée</small></div></div>
+    <div class="item"><div class="time">18:00</div><div><h3>Changdeokgung + Secret Garden 🌿</h3><p>On termine la partie historique avec le palais et son célèbre jardin secret.</p><div class="note">Petit rappel : le <strong>Secret Garden (Huwon)</strong> se trouve à <strong>Changdeokgung Palace</strong>.</div></div></div>
+    <div class="item"><div class="time">20:00</div><div><h3>Ikseon-dong 🌙</h3><p>Fin de journée dans les ruelles hanok, les boutiques, les cafés et pour dîner.</p><small>soirée tranquille</small></div></div>
+  </div>
+
+  <div id="day30" class="day">
+    <div class="dayhead"><span>Dimanche</span><strong>30 août</strong></div>
+    <div class="item"><div class="time">10:00</div><div><h3>Seoul Forest 🌳</h3><p>Début tranquille avec une balade dans le parc et ses jardins.</p><small>matin nature</small></div></div>
+    <div class="item"><div class="time">11:00</div><div><h3>Seoul International Garden Show 🌼</h3><p>On regarde les jardins et installations avant de repartir vers Seongsu.</p><small>nature + photos</small></div></div>
+    <div class="item"><div class="time">13:00</div><div><h3>Déjeuner à Seongsu 🍜</h3><p>On mange puis on profite du quartier ensemble.</p><small>sans se presser</small></div></div>
+    <div class="item"><div class="time">14:30</div><div><h3>Créer notre propre parfum 🧪</h3><p>On choisit nos senteurs et on repart chacun avec un petit parfum comme souvenir de Séoul.</p><small>réservation conseillée</small></div></div>
+    <div class="item"><div class="time">16:00</div><div><h3>Café Onion Seongsu ☕</h3><p>Ancien bâtiment industriel, café, boulangerie et ambiance typique de Seongsu.</p><small>café + dessert</small></div></div>
+    <div class="item"><div class="time">17:30</div><div><h3>Photo booth 📸</h3><p>On fait au moins une petite photo coréenne un peu ridicule. 😌</p><small>souvenir</small></div></div>
+    <div class="item"><div class="time">18:30</div><div><h3>Balade vers le Han River 🌅</h3><p>On marche tranquillement, on prend quelque chose à manger et on finit la journée au bord de l'eau.</p><small>aucune urgence</small></div></div>
+  </div>
+
+  <button class="primary full" id="questionBtn">Alors… tu en penses quoi ? <span>🐾</span></button>
+</section>
+
+<section id="question" class="screen center">
+  <div class="question-card">
+    <div class="question-cat">🐱</div>
+    <div class="kicker">UNE PETITE QUESTION</div>
+    <h2>Tu penses quoi<br><em>du programme ?</em></h2>
+    <p>Tu peux dire oui, ou me dire ce que tu voudrais changer.<br>Le but, c'est que ça te fasse envie aussi. ✨</p>
+    <div class="answers">
+      <button class="yes" id="yesBtn">Ça me plaît ! 🐾</button>
+      <button class="no" id="noBtn">Je voudrais changer quelques trucs</button>
+    </div>
+  </div>
+</section>
+
+<section id="yes" class="screen center">
+  <div class="result">
+    <div class="result-cat">😼</div>
+    <div class="kicker">PROGRAMME VALIDÉ</div>
+    <h2>Séoul<br><em>c'est parti !</em></h2>
+    <p>Parfait 😌<br>On garde le programme pour les 29 et 30 août 🇰🇷</p>
+    <div class="ticket"><span>29—30 AOÛT</span><b>SÉOUL</b><span>🐾</span></div>
+    <button class="primary" id="emailYes">M'envoyer la confirmation par mail ✉️</button>
+    <p class="tiny">Un petit message s'ouvrira dans ton application mail.</p>
+  </div>
+</section>
+
+<section id="changes" class="screen">
+  <header class="topbar"><button class="icon" id="backQuestion">←</button><span>TON CHOIX</span><span class="cat-dot">🐱</span></header>
+  <div class="change-card">
+    <div class="kicker">MODIFIER LE PROGRAMME</div>
+    <h2>Qu'est-ce que tu voudrais<br><em>changer ?</em></h2>
+    <p>Tu peux en choisir plusieurs. Ou simplement choisir « surprise ».</p>
+    <div class="choices">
+      <label><input type="checkbox" value="Plus de nourriture 🍜"><span>🍜 Plus de nourriture</span></label>
+      <label><input type="checkbox" value="Plus de nature 🌳"><span>🌳 Plus de nature</span></label>
+      <label><input type="checkbox" value="Plus de shopping 🛍️"><span>🛍️ Plus de shopping</span></label>
+      <label><input type="checkbox" value="Plus de cafés ☕"><span>☕ Plus de cafés</span></label>
+      <label><input type="checkbox" value="Moins de marche 🚌"><span>🚌 Moins de marche / moins de métro</span></label>
+      <label><input type="checkbox" value="Surprise-moi 🎁"><span>🎁 Surprise-moi</span></label>
+    </div>
+    <button class="primary" id="sendChanges">Envoyer mes choix <span>→</span></button>
+  </div>
+</section>
+
+<section id="sent" class="screen center">
+  <div class="result">
+    <div class="result-cat">💙🐱</div>
+    <div class="kicker">MESSAGE PRÊT</div>
+    <h2>Merci !</h2>
+    <p>Voici tes choix. Tu peux maintenant me les envoyer par mail ✉️</p>
+    <div id="selected" class="selected"></div>
+    <button class="primary" id="emailChanges">Envoyer mes choix par mail ✉️</button>
+    <button class="secondary" id="backPlan">Revoir le programme</button>
+    <p class="tiny">Le mail s'ouvrira dans l'application de messagerie du téléphone.</p>
+  </div>
+</section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
