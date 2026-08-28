@@ -2,10 +2,35 @@ const screens = ['intro','plan','question','yes','changes','sent'];
 // Remplace cette adresse par TON adresse e-mail avant de publier.
 const DESTINATION_EMAIL = 'loreaujoe2001@gmail.com';
 
+let currentScreen = 'intro';
+
 function show(id){
-  screens.forEach(s => document.getElementById(s).classList.toggle('active', s === id));
-  window.scrollTo({top:0, behavior:'smooth'});
+  if (id === currentScreen) return;
+  const prevEl = document.getElementById(currentScreen);
+  const nextEl = document.getElementById(id);
+
+  // Fait disparaître l'écran actuel en douceur
+  prevEl.classList.remove('show');
+
+  const switchTo = () => {
+    prevEl.classList.remove('active');
+    nextEl.classList.add('active');
+    window.scrollTo(0, 0);
+    // on force un reflow pour être sûr que la transition se déclenche
+    void nextEl.offsetWidth;
+    requestAnimationFrame(() => nextEl.classList.add('show'));
+    currentScreen = id;
+  };
+
+  // On attend la fin du fondu de sortie avant de basculer (avec un filet de sécurité)
+  let done = false;
+  const onEnd = () => { if(done) return; done = true; switchTo(); };
+  prevEl.addEventListener('transitionend', onEnd, {once:true});
+  setTimeout(onEnd, 260);
 }
+
+// Petit fondu d'entrée sur l'écran de départ, comme pour les autres transitions
+requestAnimationFrame(() => document.getElementById(currentScreen).classList.add('show'));
 
 document.getElementById('openPlan').onclick = () => show('plan');
 document.getElementById('backIntro').onclick = () => show('intro');
@@ -38,18 +63,34 @@ document.getElementById('emailYes').onclick = () => {
   );
 };
 
-document.getElementById('sendChanges').onclick = () => {
+function getSelectedChanges(){
   const selected = [...document.querySelectorAll('.choices input:checked')].map(x => x.value);
+  const custom = document.getElementById('customText').value.trim();
+  return { selected, custom };
+}
+
+function escapeHTML(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+document.getElementById('sendChanges').onclick = () => {
+  const { selected, custom } = getSelectedChanges();
   const box = document.getElementById('selected');
-  box.innerHTML = selected.length
-    ? selected.map(v => `<div>✓ ${v}</div>`).join('')
+  const lines = selected.map(v => `<div>✓ ${escapeHTML(v)}</div>`);
+  if (custom) lines.push(`<div>💬 ${escapeHTML(custom)}</div>`);
+  box.innerHTML = lines.length
+    ? lines.join('')
     : '<div>♡ Aucun changement — on garde le programme.</div>';
   show('sent');
 };
 
 document.getElementById('emailChanges').onclick = () => {
-  const selected = [...document.querySelectorAll('.choices input:checked')].map(x => x.value);
-  const changes = selected.length ? selected.map(v => `- ${v}`).join('\n') : '- Aucun changement';
+  const { selected, custom } = getSelectedChanges();
+  const lines = selected.map(v => `- ${v}`);
+  if (custom) lines.push(`- ${custom}`);
+  const changes = lines.length ? lines.join('\n') : '- Aucun changement';
   openMail(
     '📝 Changements pour le programme Séoul',
     `Coucou !\n\nVoici ce que je voudrais changer dans le programme :\n\n${changes}\n\nMerci 🐱`
